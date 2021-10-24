@@ -1,0 +1,966 @@
+openapi: 3.0.0
+info:
+  title: Project_escalab
+  description: Desarrollo de los EndPoints del proyecto del curso de NODE js en la academia ESCLAB.
+  contact: {}
+  version: '1.0'
+  x-codegen-settings:
+    Nullify404: false
+    GenerateAsyncCode: true
+    UseMethodPrefix: false
+    UseModelPostfix: false
+    UseControllerPrefix: true
+    UseEnumPostfix: true
+    CollectParameters: false
+    UseConstructorsForConfig: false
+    UseCommonSDKLibrary: false
+    iOSUseAppInfoPlist: false
+    AndroidUseAppManifest: false
+    BodySerialization: 0
+    EnableAdditionalModelProperties: false
+    PreserveParameterOrder: true
+    AppendContentHeaders: true
+    iOSGenerateCoreData: false
+    GenerateInterfaces: false
+    NodeHttpClient: NODE_REQUEST
+    ValidateRequiredParameters: false
+    JavaUsePropertiesConfig: false
+    Timeout: 0
+    StoreTimezoneInformation: false
+    EnablePHPComposerVersionString: false
+    EnableLogging: false
+    ArraySerialization: Indexed
+    ModelSerializationScheme: Json
+    UseExceptionPrefix: true
+    RunscopeEnabled: false
+    AndroidHttpClient: ANDROID_OK
+    ObjCHttpClient: UNIREST
+    CSharpHttpClient: UNIREST
+    PHPHttpClient: UNIREST
+    JavaHttpClient: JAVA_OK
+    ParameterArrayFormat: ParamArrayWithIndex
+    SecurityProtocols:
+      - Ssl3
+      - Tls
+    GenerateTravisConfig: false
+    GenerateCircleConfig: false
+    GenerateAppveyorConfig: false
+    GenerateJenkinsConfig: false
+    EnableHttpCache: false
+    Retries: 0
+    RetryInterval: 1
+    GenerateAdvancedDocs: true
+    UnderscoreNumbers: true
+    UseSingletonPattern: true
+    DisableLinting: false
+    ApplyCustomizations: []
+    SortResources: false
+    AllowSkippingSSLCertVerification: false
+    DoNotSplitWords: []
+    EnableGlobalUserAgent: true
+    ReturnCompleteHttpResponse: false
+    GenerateModels: true
+    GenerateExceptions: true
+    IgnoreIfNullJson: false
+    DisableDocs: false
+    LiftParameterDescriptionFromCustomType: false
+    ThrowForHttpErrorStatusCodes: true
+    ResponseMapping:
+      Type: Simple
+    ForceKeywordArgsInRuby: false
+    SymbolizeHashKeysInRuby: false
+    UsageExampleEndpoint:
+      Description: ''
+      EndpointGroupName: ''
+      EndpointName: ''
+    IsLatestVersion: false
+    EnableImmutableModels: false
+    GenerateEnums: true
+    BackoffFactor: 2
+    StatusCodesToRetry:
+      - 408
+      - 413
+      - 429
+      - 500
+      - 502
+      - 503
+      - 504
+      - 521
+      - 522
+      - 524
+    RequestMethodsToRetry:
+      - GET
+      - PUT
+    UserConfigurableRetries: true
+    UseEndpointMethodName: false
+    EncodeTemplateParameters: true
+    GenerateExamplesForOptionalFields: false
+    MultitargetDotnetVersions: false
+    BackoffMax: 0
+    RetryOnTimeout: true
+    EnableCookies: false
+    EnableJsonPassThroughForAny: false
+  x-server-configuration:
+    default-environment: production
+    default-server: Server 1
+    environments:
+      - name: production
+        servers:
+          - name: Server 1
+            url: http://localhost:3977/api/v1
+    parameters: []
+  x-image-uri: ''
+servers:
+  - url: http://localhost:3977/api/v1
+    variables: {}
+paths:
+  /sign-up:
+    post:
+      tags:
+        - User
+      summary: SignUp
+      operationId: SignUp
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SignUpRequest'
+            example:
+              name: test2
+              lastname: lastnameTest2
+              email: test2@test2.com
+              password: '123456'
+              repeatPassword: '123456'
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+      x-unitTests:
+        - request:
+            method: POST
+            uri: /sign-up
+            headers:
+              Content-Type: application/json
+            body: "{\r\n  \"name\": \"test2\",\r\n  \"lastname\": \"lastnameTest2\",\r\n  \"email\": \"test2@test2.com\",\r\n  \"password\": \"123456\",\r\n  \"repeatPassword\": \"123456\"\r\n}"
+          expectedResponse:
+            x-allowExtraHeaders: true
+            x-bodyMatchMode: NONE
+            x-arrayOrderedMatching: false
+            x-arrayCheckCount: false
+            x-matchResponseSchema: true
+            statusCode: '200'
+            headers: {}
+          x-testShouldPass: true
+          x-testEnabled: true
+          x-testName: SignUp
+  /sign-in:
+    post:
+      tags:
+        - User
+      summary: SignIn
+      operationId: SignIn
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SignInRequest'
+            example:
+              email: test2@test2.com
+              password: '123456'
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+      x-unitTests:
+        - request:
+            method: POST
+            uri: /sign-in
+            headers:
+              Content-Type: application/json
+            body: "{\r\n  \"email\": \"test2@test2.com\",\r\n  \"password\": \"123456\"\r\n}"
+          expectedResponse:
+            x-allowExtraHeaders: true
+            x-bodyMatchMode: NONE
+            x-arrayOrderedMatching: false
+            x-arrayCheckCount: false
+            x-matchResponseSchema: true
+            statusCode: '200'
+            headers: {}
+          x-testShouldPass: true
+          x-testEnabled: true
+          x-testName: SignIn
+  /users:
+    get:
+      tags:
+        - User
+      summary: GetUsers
+      operationId: GetUsers
+      parameters:
+        - name: Content-Type
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+            example: application/json
+        - name: Authorization
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+            example: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjYxNjhlM2YxNmMzNzk4MTAwOGQzMmI4YiIsIm5hbWUiOiJ0ZXN0MSIsImxhc3RuYW1lIjoibGFzdG5hbWVUZXN0MSIsImVtYWlsIjoidGVzdDFAdGVzdDEuY29tIiwicm9sZSI6ImFkbWluIiwiY3JlYXRlVG9rZW4iOjE2MzQ3MDEzODIsImV4cCI6MTYzNDcxMjE4Mn0.NkBTagAJ1NtWwDOe6Z0uTImIFN-7Z3zSisqiIwvBYrc
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+      x-unitTests:
+        - request:
+            method: GET
+            uri: /users
+            headers:
+              Content-Type: application/json
+              Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjYxNjhlM2YxNmMzNzk4MTAwOGQzMmI4YiIsIm5hbWUiOiJ0ZXN0MSIsImxhc3RuYW1lIjoibGFzdG5hbWVUZXN0MSIsImVtYWlsIjoidGVzdDFAdGVzdDEuY29tIiwicm9sZSI6ImFkbWluIiwiY3JlYXRlVG9rZW4iOjE2MzQ3MDEzODIsImV4cCI6MTYzNDcxMjE4Mn0.NkBTagAJ1NtWwDOe6Z0uTImIFN-7Z3zSisqiIwvBYrc
+          expectedResponse:
+            x-allowExtraHeaders: true
+            x-bodyMatchMode: NONE
+            x-arrayOrderedMatching: false
+            x-arrayCheckCount: false
+            x-matchResponseSchema: true
+            statusCode: '200'
+            headers: {}
+          x-testShouldPass: true
+          x-testEnabled: true
+          x-testName: GetUsers
+  /users-active:
+    get:
+      tags:
+        - User
+      summary: GetUsersActive
+      operationId: GetUsersActive
+      parameters:
+        - name: active
+          in: query
+          description: ''
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: boolean
+            example: false
+        - name: Content-Type
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+            example: application/json
+        - name: Authorization
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+            example: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjYxNjhlM2YxNmMzNzk4MTAwOGQzMmI4YiIsIm5hbWUiOiJ0ZXN0MSIsImxhc3RuYW1lIjoibGFzdG5hbWVUZXN0MSIsImVtYWlsIjoidGVzdDFAdGVzdDEuY29tIiwicm9sZSI6ImFkbWluIiwiY3JlYXRlVG9rZW4iOjE2MzQ3MDEzODIsImV4cCI6MTYzNDcxMjE4Mn0.NkBTagAJ1NtWwDOe6Z0uTImIFN-7Z3zSisqiIwvBYrc
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+      x-unitTests:
+        - request:
+            method: GET
+            uri: /users-active?active=false
+            headers:
+              Content-Type: application/json
+              Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjYxNjhlM2YxNmMzNzk4MTAwOGQzMmI4YiIsIm5hbWUiOiJ0ZXN0MSIsImxhc3RuYW1lIjoibGFzdG5hbWVUZXN0MSIsImVtYWlsIjoidGVzdDFAdGVzdDEuY29tIiwicm9sZSI6ImFkbWluIiwiY3JlYXRlVG9rZW4iOjE2MzQ3MDEzODIsImV4cCI6MTYzNDcxMjE4Mn0.NkBTagAJ1NtWwDOe6Z0uTImIFN-7Z3zSisqiIwvBYrc
+          expectedResponse:
+            x-allowExtraHeaders: true
+            x-bodyMatchMode: NONE
+            x-arrayOrderedMatching: false
+            x-arrayCheckCount: false
+            x-matchResponseSchema: true
+            statusCode: '200'
+            headers: {}
+          x-testShouldPass: true
+          x-testEnabled: true
+          x-testName: GetUsersActive
+  /upload-avatar/6168e3f16c37981008d32b8b:
+    put:
+      tags:
+        - User
+      summary: UploadImage
+      operationId: UploadImage
+      parameters:
+        - name: Authorization
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+            example: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjYxNjhlM2YxNmMzNzk4MTAwOGQzMmI4YiIsIm5hbWUiOiJ0ZXN0MSIsImxhc3RuYW1lIjoibGFzdG5hbWVUZXN0MSIsImVtYWlsIjoidGVzdDFAdGVzdDEuY29tIiwicm9sZSI6ImFkbWluIiwiY3JlYXRlVG9rZW4iOjE2MzQ4Njg1MjgsImV4cCI6MTYzNDg3OTMyOH0.JkFOgPehfb_rWiBXK0Uzm7A3qe_LFMErxHJ_lYIugQA
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            encoding: {}
+            schema:
+              required:
+                - avatar
+              type: object
+              properties:
+                avatar:
+                  type: string
+        required: false
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+      x-unitTests:
+        - request:
+            method: PUT
+            uri: /upload-avatar/6168e3f16c37981008d32b8b
+            headers:
+              Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjYxNjhlM2YxNmMzNzk4MTAwOGQzMmI4YiIsIm5hbWUiOiJ0ZXN0MSIsImxhc3RuYW1lIjoibGFzdG5hbWVUZXN0MSIsImVtYWlsIjoidGVzdDFAdGVzdDEuY29tIiwicm9sZSI6ImFkbWluIiwiY3JlYXRlVG9rZW4iOjE2MzQ4Njg1MjgsImV4cCI6MTYzNDg3OTMyOH0.JkFOgPehfb_rWiBXK0Uzm7A3qe_LFMErxHJ_lYIugQA
+          expectedResponse:
+            x-allowExtraHeaders: true
+            x-bodyMatchMode: NONE
+            x-arrayOrderedMatching: false
+            x-arrayCheckCount: false
+            x-matchResponseSchema: true
+            statusCode: '200'
+            headers: {}
+          x-testShouldPass: true
+          x-testEnabled: true
+          x-testName: UploadImage
+  /get-avatar/8QPxTEf82sm-MFRe91jBXQCC.jpg:
+    get:
+      tags:
+        - User
+      summary: getAvatar
+      operationId: getAvatar
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+      x-unitTests:
+        - request:
+            method: GET
+            uri: /get-avatar/8QPxTEf82sm-MFRe91jBXQCC.jpg
+          expectedResponse:
+            x-allowExtraHeaders: true
+            x-bodyMatchMode: NONE
+            x-arrayOrderedMatching: false
+            x-arrayCheckCount: false
+            x-matchResponseSchema: true
+            statusCode: '200'
+            headers: {}
+          x-testShouldPass: true
+          x-testEnabled: true
+          x-testName: getAvatar
+  /update-user/6168e3f16c37981008d32b8b:
+    get:
+      tags:
+        - User
+      summary: updateUser
+      operationId: updateUser
+      parameters:
+        - name: Authorization
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+            example: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjYxNjhlM2YxNmMzNzk4MTAwOGQzMmI4YiIsImV4cCI6MTYzNzQ2MDUyOH0.NN91tHmzf1RC9tZjRWuaVuBLR7YWuOBBfhS0WNAIdHQ
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+      x-unitTests:
+        - request:
+            method: GET
+            uri: /update-user/6168e3f16c37981008d32b8b
+            headers:
+              Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjYxNjhlM2YxNmMzNzk4MTAwOGQzMmI4YiIsImV4cCI6MTYzNzQ2MDUyOH0.NN91tHmzf1RC9tZjRWuaVuBLR7YWuOBBfhS0WNAIdHQ
+          expectedResponse:
+            x-allowExtraHeaders: true
+            x-bodyMatchMode: NONE
+            x-arrayOrderedMatching: false
+            x-arrayCheckCount: false
+            x-matchResponseSchema: true
+            statusCode: '200'
+            headers: {}
+          x-testShouldPass: true
+          x-testEnabled: true
+          x-testName: updateUser
+  /activate-user/6168e3f16c37981008d32b8b:
+    put:
+      tags:
+        - User
+      summary: ActivateUser
+      operationId: ActivateUser
+      parameters:
+        - name: Authorization
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+            example: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjYxNjlmMzQ0NWIwZWNkMTg1NDYyZTM0MCIsIm5hbWUiOiJ0ZXN0MiIsImxhc3RuYW1lIjoibGFzdG5hbWVUZXN0MiIsImVtYWlsIjoidGVzdDJAdGVzdDIuY29tIiwicm9sZSI6ImFkbWluIiwiY3JlYXRlVG9rZW4iOjE2MzQ5NTU1MzIsImV4cCI6MTYzNDk2NjMzMn0.RwOcYeV1dA-geGgRsJRurnuL2_RofMiqqhL04Sz6Ows
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ActivateUserRequest'
+            example:
+              active: true
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+      x-unitTests:
+        - request:
+            method: PUT
+            uri: /activate-user/6168e3f16c37981008d32b8b
+            headers:
+              Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjYxNjlmMzQ0NWIwZWNkMTg1NDYyZTM0MCIsIm5hbWUiOiJ0ZXN0MiIsImxhc3RuYW1lIjoibGFzdG5hbWVUZXN0MiIsImVtYWlsIjoidGVzdDJAdGVzdDIuY29tIiwicm9sZSI6ImFkbWluIiwiY3JlYXRlVG9rZW4iOjE2MzQ5NTU1MzIsImV4cCI6MTYzNDk2NjMzMn0.RwOcYeV1dA-geGgRsJRurnuL2_RofMiqqhL04Sz6Ows
+              Content-Type: application/json
+            body: "{\r\n  \"active\": true\r\n}"
+          expectedResponse:
+            x-allowExtraHeaders: true
+            x-bodyMatchMode: NONE
+            x-arrayOrderedMatching: false
+            x-arrayCheckCount: false
+            x-matchResponseSchema: true
+            statusCode: '200'
+            headers: {}
+          x-testShouldPass: true
+          x-testEnabled: true
+          x-testName: ActivateUser
+  /delete-user/616f6171e9f24c310c67761a:
+    delete:
+      tags:
+        - User
+      summary: DeleteUser
+      operationId: DeleteUser
+      parameters:
+        - name: Content-Type
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+            example: application/json
+        - name: Authorization
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+            example: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjYxNjlmMzQ0NWIwZWNkMTg1NDYyZTM0MCIsIm5hbWUiOiJ0ZXN0MiIsImxhc3RuYW1lIjoibGFzdG5hbWVUZXN0MiIsImVtYWlsIjoidGVzdDJAdGVzdDIuY29tIiwicm9sZSI6ImFkbWluIiwiY3JlYXRlVG9rZW4iOjE2MzQ5NTU1MzIsImV4cCI6MTYzNDk2NjMzMn0.RwOcYeV1dA-geGgRsJRurnuL2_RofMiqqhL04Sz6Ows
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+      x-unitTests:
+        - request:
+            method: DELETE
+            uri: /delete-user/616f6171e9f24c310c67761a
+            headers:
+              Content-Type: application/json
+              Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjYxNjlmMzQ0NWIwZWNkMTg1NDYyZTM0MCIsIm5hbWUiOiJ0ZXN0MiIsImxhc3RuYW1lIjoibGFzdG5hbWVUZXN0MiIsImVtYWlsIjoidGVzdDJAdGVzdDIuY29tIiwicm9sZSI6ImFkbWluIiwiY3JlYXRlVG9rZW4iOjE2MzQ5NTU1MzIsImV4cCI6MTYzNDk2NjMzMn0.RwOcYeV1dA-geGgRsJRurnuL2_RofMiqqhL04Sz6Ows
+          expectedResponse:
+            x-allowExtraHeaders: true
+            x-bodyMatchMode: NONE
+            x-arrayOrderedMatching: false
+            x-arrayCheckCount: false
+            x-matchResponseSchema: true
+            statusCode: '200'
+            headers: {}
+          x-testShouldPass: true
+          x-testEnabled: true
+          x-testName: DeleteUser
+  /refresh-access-token:
+    post:
+      tags:
+        - Auth
+      summary: Refresh Access Token
+      operationId: RefreshAccessToken
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RefreshAccessTokenRequest'
+            example:
+              refreshToken: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjYxNjlmMzQ0NWIwZWNkMTg1NDYyZTM0MCIsImV4cCI6MTYzNzI3NTQ4OX0.zB8RuEoi7Sau7uUd5Pe98Xpe0aMMjNsPa8BVBwXXIuI
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+      x-unitTests:
+        - request:
+            method: POST
+            uri: /refresh-access-token
+            headers:
+              Content-Type: application/json
+            body: "{\r\n  \"refreshToken\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjYxNjlmMzQ0NWIwZWNkMTg1NDYyZTM0MCIsImV4cCI6MTYzNzI3NTQ4OX0.zB8RuEoi7Sau7uUd5Pe98Xpe0aMMjNsPa8BVBwXXIuI\"\r\n}"
+          expectedResponse:
+            x-allowExtraHeaders: true
+            x-bodyMatchMode: NONE
+            x-arrayOrderedMatching: false
+            x-arrayCheckCount: false
+            x-matchResponseSchema: true
+            statusCode: '200'
+            headers: {}
+          x-testShouldPass: true
+          x-testEnabled: true
+          x-testName: Refresh Access Token
+  /add-menu:
+    post:
+      tags:
+        - Menu
+      summary: AddMenu
+      operationId: AddMenu
+      parameters:
+        - name: Authorization
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+            example: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjYxNjlmMzQ0NWIwZWNkMTg1NDYyZTM0MCIsIm5hbWUiOiJ0ZXN0MiIsImxhc3RuYW1lIjoibGFzdG5hbWVUZXN0MiIsImVtYWlsIjoidGVzdDJAdGVzdDIuY29tIiwicm9sZSI6ImFkbWluIiwiY3JlYXRlVG9rZW4iOjE2MzQ5NTg4NzMsImV4cCI6MTYzNDk2OTY3M30.brXhUeCB6TKUhLwSkHqvDVthubwq8mF-CgeeBAM6xxM
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddMenuRequest'
+            example:
+              title: Cursos
+              url: https://prueba.com/cursos
+              order: 2
+              active: false
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+      x-unitTests:
+        - request:
+            method: POST
+            uri: /add-menu
+            headers:
+              Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjYxNjlmMzQ0NWIwZWNkMTg1NDYyZTM0MCIsIm5hbWUiOiJ0ZXN0MiIsImxhc3RuYW1lIjoibGFzdG5hbWVUZXN0MiIsImVtYWlsIjoidGVzdDJAdGVzdDIuY29tIiwicm9sZSI6ImFkbWluIiwiY3JlYXRlVG9rZW4iOjE2MzQ5NTg4NzMsImV4cCI6MTYzNDk2OTY3M30.brXhUeCB6TKUhLwSkHqvDVthubwq8mF-CgeeBAM6xxM
+              Content-Type: application/json
+            body: "{\r\n  \"title\": \"Cursos\",\r\n  \"url\": \"https://prueba.com/cursos\",\r\n  \"order\": 2,\r\n  \"active\": false\r\n}"
+          expectedResponse:
+            x-allowExtraHeaders: true
+            x-bodyMatchMode: NONE
+            x-arrayOrderedMatching: false
+            x-arrayCheckCount: false
+            x-matchResponseSchema: true
+            statusCode: '200'
+            headers: {}
+          x-testShouldPass: true
+          x-testEnabled: true
+          x-testName: AddMenu
+  /get-menus:
+    get:
+      tags:
+        - Menu
+      summary: GetMenus
+      operationId: GetMenus
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+      x-unitTests:
+        - request:
+            method: GET
+            uri: /get-menus
+          expectedResponse:
+            x-allowExtraHeaders: true
+            x-bodyMatchMode: NONE
+            x-arrayOrderedMatching: false
+            x-arrayCheckCount: false
+            x-matchResponseSchema: true
+            statusCode: '200'
+            headers: {}
+          x-testShouldPass: true
+          x-testEnabled: true
+          x-testName: GetMenus
+  /update-menu/61738da394269d221c0eff7a:
+    put:
+      tags:
+        - Menu
+      summary: UpdateMenu
+      operationId: UpdateMenu
+      parameters:
+        - name: Authorization
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+            example: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjYxNjlmMzQ0NWIwZWNkMTg1NDYyZTM0MCIsIm5hbWUiOiJ0ZXN0MiIsImxhc3RuYW1lIjoibGFzdG5hbWVUZXN0MiIsImVtYWlsIjoidGVzdDJAdGVzdDIuY29tIiwicm9sZSI6ImFkbWluIiwiY3JlYXRlVG9rZW4iOjE2MzQ5NTg4NzMsImV4cCI6MTYzNDk2OTY3M30.brXhUeCB6TKUhLwSkHqvDVthubwq8mF-CgeeBAM6xxM
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateMenuRequest'
+            example:
+              order: 5
+              title: Blog Update
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+      x-unitTests:
+        - request:
+            method: PUT
+            uri: /update-menu/61738da394269d221c0eff7a
+            headers:
+              Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjYxNjlmMzQ0NWIwZWNkMTg1NDYyZTM0MCIsIm5hbWUiOiJ0ZXN0MiIsImxhc3RuYW1lIjoibGFzdG5hbWVUZXN0MiIsImVtYWlsIjoidGVzdDJAdGVzdDIuY29tIiwicm9sZSI6ImFkbWluIiwiY3JlYXRlVG9rZW4iOjE2MzQ5NTg4NzMsImV4cCI6MTYzNDk2OTY3M30.brXhUeCB6TKUhLwSkHqvDVthubwq8mF-CgeeBAM6xxM
+              Content-Type: application/json
+            body: "{\r\n  \"order\": 5,\r\n  \"title\": \"Blog Update\"\r\n}"
+          expectedResponse:
+            x-allowExtraHeaders: true
+            x-bodyMatchMode: NONE
+            x-arrayOrderedMatching: false
+            x-arrayCheckCount: false
+            x-matchResponseSchema: true
+            statusCode: '200'
+            headers: {}
+          x-testShouldPass: true
+          x-testEnabled: true
+          x-testName: UpdateMenu
+  /activate-menu/61738da394269d221c0eff7a:
+    put:
+      tags:
+        - Menu
+      summary: ActiveMenu
+      operationId: ActiveMenu
+      parameters:
+        - name: Authorization
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+            example: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjYxNjlmMzQ0NWIwZWNkMTg1NDYyZTM0MCIsIm5hbWUiOiJ0ZXN0MiIsImxhc3RuYW1lIjoibGFzdG5hbWVUZXN0MiIsImVtYWlsIjoidGVzdDJAdGVzdDIuY29tIiwicm9sZSI6ImFkbWluIiwiY3JlYXRlVG9rZW4iOjE2MzQ5NTg4NzMsImV4cCI6MTYzNDk2OTY3M30.brXhUeCB6TKUhLwSkHqvDVthubwq8mF-CgeeBAM6xxM
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ActiveMenuRequest'
+            example:
+              active: true
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+      x-unitTests:
+        - request:
+            method: PUT
+            uri: /activate-menu/61738da394269d221c0eff7a
+            headers:
+              Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjYxNjlmMzQ0NWIwZWNkMTg1NDYyZTM0MCIsIm5hbWUiOiJ0ZXN0MiIsImxhc3RuYW1lIjoibGFzdG5hbWVUZXN0MiIsImVtYWlsIjoidGVzdDJAdGVzdDIuY29tIiwicm9sZSI6ImFkbWluIiwiY3JlYXRlVG9rZW4iOjE2MzQ5NTg4NzMsImV4cCI6MTYzNDk2OTY3M30.brXhUeCB6TKUhLwSkHqvDVthubwq8mF-CgeeBAM6xxM
+              Content-Type: application/json
+            body: "{\r\n  \"active\": true\r\n}"
+          expectedResponse:
+            x-allowExtraHeaders: true
+            x-bodyMatchMode: NONE
+            x-arrayOrderedMatching: false
+            x-arrayCheckCount: false
+            x-matchResponseSchema: true
+            statusCode: '200'
+            headers: {}
+          x-testShouldPass: true
+          x-testEnabled: true
+          x-testName: ActiveMenu
+  /delete-menu/61738da394269d221c0eff7a:
+    delete:
+      tags:
+        - Menu
+      summary: DeleteMenu
+      operationId: DeleteMenu
+      parameters:
+        - name: Content-Type
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+            example: application/json
+        - name: Authorization
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+            example: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjYxNjlmMzQ0NWIwZWNkMTg1NDYyZTM0MCIsIm5hbWUiOiJ0ZXN0MiIsImxhc3RuYW1lIjoibGFzdG5hbWVUZXN0MiIsImVtYWlsIjoidGVzdDJAdGVzdDIuY29tIiwicm9sZSI6ImFkbWluIiwiY3JlYXRlVG9rZW4iOjE2MzQ5NTg4NzMsImV4cCI6MTYzNDk2OTY3M30.brXhUeCB6TKUhLwSkHqvDVthubwq8mF-CgeeBAM6xxM
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+      x-unitTests:
+        - request:
+            method: DELETE
+            uri: /delete-menu/61738da394269d221c0eff7a
+            headers:
+              Content-Type: application/json
+              Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjYxNjlmMzQ0NWIwZWNkMTg1NDYyZTM0MCIsIm5hbWUiOiJ0ZXN0MiIsImxhc3RuYW1lIjoibGFzdG5hbWVUZXN0MiIsImVtYWlsIjoidGVzdDJAdGVzdDIuY29tIiwicm9sZSI6ImFkbWluIiwiY3JlYXRlVG9rZW4iOjE2MzQ5NTg4NzMsImV4cCI6MTYzNDk2OTY3M30.brXhUeCB6TKUhLwSkHqvDVthubwq8mF-CgeeBAM6xxM
+          expectedResponse:
+            x-allowExtraHeaders: true
+            x-bodyMatchMode: NONE
+            x-arrayOrderedMatching: false
+            x-arrayCheckCount: false
+            x-matchResponseSchema: true
+            statusCode: '200'
+            headers: {}
+          x-testShouldPass: true
+          x-testEnabled: true
+          x-testName: DeleteMenu
+components:
+  schemas:
+    SignUpRequest:
+      title: SignUpRequest
+      required:
+        - name
+        - lastname
+        - email
+        - password
+        - repeatPassword
+      type: object
+      properties:
+        name:
+          type: string
+        lastname:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+        repeatPassword:
+          type: string
+      example:
+        name: test2
+        lastname: lastnameTest2
+        email: test2@test2.com
+        password: '123456'
+        repeatPassword: '123456'
+    SignInRequest:
+      title: SignInRequest
+      required:
+        - email
+        - password
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+      example:
+        email: test2@test2.com
+        password: '123456'
+    ActivateUserRequest:
+      title: ActivateUserRequest
+      required:
+        - active
+      type: object
+      properties:
+        active:
+          type: boolean
+      example:
+        active: true
+    RefreshAccessTokenRequest:
+      title: RefreshAccessTokenRequest
+      required:
+        - refreshToken
+      type: object
+      properties:
+        refreshToken:
+          type: string
+      example:
+        refreshToken: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjYxNjlmMzQ0NWIwZWNkMTg1NDYyZTM0MCIsImV4cCI6MTYzNzI3NTQ4OX0.zB8RuEoi7Sau7uUd5Pe98Xpe0aMMjNsPa8BVBwXXIuI
+    AddMenuRequest:
+      title: AddMenuRequest
+      required:
+        - title
+        - url
+        - order
+        - active
+      type: object
+      properties:
+        title:
+          type: string
+        url:
+          type: string
+        order:
+          type: integer
+          format: int32
+        active:
+          type: boolean
+      example:
+        title: Cursos
+        url: https://prueba.com/cursos
+        order: 2
+        active: false
+    UpdateMenuRequest:
+      title: UpdateMenuRequest
+      required:
+        - order
+        - title
+      type: object
+      properties:
+        order:
+          type: integer
+          format: int32
+        title:
+          type: string
+      example:
+        order: 5
+        title: Blog Update
+    ActiveMenuRequest:
+      title: ActiveMenuRequest
+      required:
+        - active
+      type: object
+      properties:
+        active:
+          type: boolean
+      example:
+        active: true
+tags:
+  - name: User
+  - name: Auth
+  - name: Menu
